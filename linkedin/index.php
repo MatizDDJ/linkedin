@@ -39,21 +39,16 @@ $user_name = $is_logged_in ? htmlspecialchars($_SESSION['user_nombre']) : null;
                     <div class="ml-10 flex flex-col md:flex-row items-baseline space-y-2 md:space-y-0 md:space-x-8 bg-white md:bg-transparent absolute md:static top-16 left-0 w-full md:w-auto shadow md:shadow-none p-4 md:p-0 z-40">
                         <a href="index.php" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium border-b-2 border-blue-600">Empleos</a>
                         <?php if ($is_logged_in): ?>
-                            <a href="perfil.php" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Perfil</a>
+                            <a href="perfil.php" class="flex items-center space-x-2 text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                                <span>Perfil</span>
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-medium"><?php echo htmlspecialchars(substr($user_name, 0, 1)); ?></span>
+                                </div>
+                            </a>
                         <?php else: ?>
-                            <a href="login.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
-                            <a href="registro.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Registro</a>
+                            <a href="login.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Iniciar Sesión</a>
                         <?php endif; ?>
                     </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <?php if ($is_logged_in): ?>
-                        <a href="perfil.php" class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white text-sm font-medium"><?php echo htmlspecialchars(substr($user_name, 0, 1)); ?></span>
-                        </a>
-                    <?php else: ?>
-                        <div class="w-8 h-8 bg-gray-400 rounded-full"></div>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
